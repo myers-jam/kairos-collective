@@ -165,14 +165,14 @@ function PricingSection() {
 
               <div className="mt-10 pt-2">
                 <a
-                  href="#contact"
+                  href="#inquire"
                   className={`inline-flex w-full items-center justify-center rounded-full px-6 py-3.5 text-sm font-medium transition duration-300 ${
                     pkg.featured
                       ? 'bg-white text-neutral-950 hover:bg-neutral-200'
                       : 'border border-neutral-300 bg-transparent text-neutral-900 hover:border-neutral-950 hover:bg-neutral-950 hover:text-white'
                   }`}
                 >
-                  Check Availability
+                  Capture you day
                 </a>
               </div>
             </article>
