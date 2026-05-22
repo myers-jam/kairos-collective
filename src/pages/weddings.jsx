@@ -7,27 +7,87 @@ import watkinsVideo from '../assets/watkinsVideo.mp4'
 import BWedding from '../assets/BWedding.jpeg'
 import InquirySection from '../components/InquirySection.js'
 
+import { useState } from "react";
+import { Menu, X } from "lucide-react";
+
 function Weddings() {
+  const [menuOpen, setMenuOpen] = useState(false);
   return (
     <div className="min-h-screen bg-[#f7f1ea] text-neutral-950">
       {/* NAV */}
-      <header className="fixed inset-x-0 top-0 z-50 border-b border-neutral-200 bg-[#f7f1ea]/80 backdrop-blur-xl">
-        <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-5 lg:px-10">
-          <a
-            href="/"
-            className="text-xs font-semibold uppercase tracking-[0.4em]"
-          >
-            Kairos Collective
-          </a>
+      <header className="fixed inset-x-0 top-0 z-50 border-b border-white/10 bg-neutral-950/70 backdrop-blur-xl">
+  <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-5 lg:px-10">
+    <a
+      href="#home"
+      className="text-xs font-semibold uppercase tracking-[0.4em] text-white"
+    >
+      Kairos Collective
+    </a>
 
-          <a
-            href="/"
-            className="rounded-full border border-neutral-300 px-5 py-2 text-sm transition hover:bg-neutral-950 hover:text-white"
-          >
-            Back to Home
-          </a>
-        </div>
-      </header>
+    {/* Desktop Navigation */}
+    <nav className="hidden items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-2 text-sm text-white/70 md:flex">
+      <a
+        href="#services"
+        className="rounded-full px-4 py-2 transition hover:bg-white hover:text-neutral-950"
+      >
+        Services
+      </a>
+
+      <a
+        href="/weddings"
+        className="rounded-full px-4 py-2 transition hover:bg-white hover:text-neutral-950"
+      >
+        Weddings
+      </a>
+
+      <a
+        href="#inquire"
+        className="rounded-full px-4 py-2 transition hover:bg-white hover:text-neutral-950"
+      >
+        Inquire
+      </a>
+    </nav>
+
+    {/* Mobile Menu Button */}
+    <button
+      onClick={() => setMenuOpen(!menuOpen)}
+      className="flex h-11 w-11 items-center justify-center rounded-full border border-white/10 bg-white/5 text-white md:hidden"
+    >
+      {menuOpen ? <X size={18} /> : <Menu size={18} />}
+    </button>
+  </div>
+
+  {/* Mobile Navigation */}
+  {menuOpen && (
+    <div className="border-t border-white/10 bg-neutral-950/95 px-6 py-6 backdrop-blur-xl md:hidden">
+      <nav className="flex flex-col gap-3 text-white">
+        <a
+          href="#services"
+          onClick={() => setMenuOpen(false)}
+          className="rounded-full px-4 py-3 transition hover:bg-white hover:text-neutral-950"
+        >
+          Services
+        </a>
+
+        <a
+          href="/weddings"
+          onClick={() => setMenuOpen(false)}
+          className="rounded-full px-4 py-3 transition hover:bg-white hover:text-neutral-950"
+        >
+          Weddings
+        </a>
+
+        <a
+          href="#inquire"
+          onClick={() => setMenuOpen(false)}
+          className="rounded-full px-4 py-3 transition hover:bg-white hover:text-neutral-950"
+        >
+          Inquire
+        </a>
+      </nav>
+    </div>
+  )}
+</header>
 
       <main>
         {/* HERO */}
