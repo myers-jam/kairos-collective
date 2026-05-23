@@ -171,7 +171,7 @@ function Weddings() {
           </div>
 
           <div className="rounded-full border border-neutral-200 px-4 py-2 text-xs text-neutral-600">
-            Shot in collaboration with Commancheria Productions • Edited by Commancheria Productions
+            Shot in collaboration with Comanchería Productions • Edited by Comanchería Productions
           </div>
         </div>
 
