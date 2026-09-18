@@ -117,7 +117,7 @@ function PricingSection() {
                   href="#inquire"
                   className="mt-9 inline-flex items-center justify-center rounded-full bg-white px-8 py-4 text-sm font-medium text-neutral-950 transition duration-300 hover:bg-neutral-200"
                 >
-                  Check Availability
+                  Inquire Now
                 </a>
               </div>
 
