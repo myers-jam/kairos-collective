@@ -54,17 +54,42 @@ const packages = [
   },
 ]
 
-const specialFeatures = [
-  '1 Videographer',
-  'Up to 8 hours of wedding day coverage',
-  'Professional audio recording for vows and speeches',
-  'Cinematic highlight film (4–6 minutes)',
-  'Licensed music',
-  'Professional color grading',
-  'Online film delivery',
-  'Social media ready teaser',
-  'Digital download',
-]
+const endOfYearSpecials = [
+  {
+    name: "Essential Special",
+    price: "$1,000",
+    description:
+      "A beautiful cinematic wedding film experience focused on preserving the moments that matter most.",
+    features: [
+      "1 Videographer",
+      "Up to 8 hours of wedding day coverage",
+      "Professional audio for vows and speeches",
+      "4–6 minute cinematic highlight film",
+      "Licensed music",
+      "Professional color grading",
+      "Social media teaser",
+      "Online delivery",
+    ],
+    featured: false,
+  },
+  {
+    name: "Signature Special",
+    price: "$2,000",
+    description:
+      "A more complete wedding film experience with two videographers, expanded coverage, and more ways to capture your story.",
+    features: [
+      "2 Videographers",
+      "Full wedding day coverage",
+      "Professional audio coverage",
+      "Drone footage, weather and location permitting",
+      "Multiple camera angles for ceremony and reception",
+      "4–6 minute cinematic highlight film",
+      "Social media teaser",
+      "Online delivery",
+    ],
+    featured: true,
+  },
+];
 
 function PricingSection() {
   return (
@@ -75,79 +100,139 @@ function PricingSection() {
       <div className="mx-auto max-w-7xl">
 
         {/* End of Year Special */}
-        <div className="relative overflow-hidden rounded-[2.5rem] bg-neutral-950 px-7 py-10 text-white shadow-[0_35px_100px_rgba(15,15,15,0.2)] sm:px-10 sm:py-12 lg:px-14 lg:py-14">
+        
+{/* END OF YEAR SPECIALS */}
+<div className="relative overflow-hidden rounded-[2.5rem] bg-neutral-950 px-6 py-12 text-white shadow-[0_35px_100px_rgba(15,15,15,0.2)] sm:px-10 sm:py-16 lg:px-14 lg:py-20">
 
-          <div className="pointer-events-none absolute right-0 top-0 h-72 w-72 translate-x-1/3 -translate-y-1/3 rounded-full bg-white/[0.04] blur-3xl" />
+  <div className="pointer-events-none absolute right-0 top-0 h-72 w-72 translate-x-1/3 -translate-y-1/3 rounded-full bg-white/[0.04] blur-3xl" />
 
-          <div className="relative">
-            <div className="flex flex-col gap-10 lg:grid lg:grid-cols-[0.9fr_1.1fr] lg:items-center lg:gap-16">
+  <div className="relative">
 
-              <div>
-                <div className="inline-flex rounded-full border border-white/15 bg-white/[0.06] px-4 py-2 text-[0.65rem] font-medium uppercase tracking-[0.28em] text-white/75">
-                  End of Year Special
-                </div>
+    {/* Section Heading */}
+    <div className="mx-auto max-w-3xl text-center">
 
-                <h2 className="mt-7 max-w-xl font-serif text-4xl tracking-[-0.045em] text-white sm:text-5xl lg:text-6xl">
-                  Your wedding day.
-                  <br />
-                  Beautifully preserved.
-                </h2>
+      <span className="inline-flex rounded-full border border-[#d4af67]/30 bg-[#d4af67]/10 px-5 py-2 text-[0.65rem] font-medium uppercase tracking-[0.28em] text-[#d4af67]">
+        Limited Time Offer
+      </span>
 
-                <p className="mt-6 max-w-lg text-base leading-8 text-white/65 sm:text-lg">
-                  A limited offer for couples who want their wedding day
-                  professionally captured and transformed into a cinematic
-                  wedding film.
-                </p>
+      <h2 className="mt-7 font-serif text-4xl tracking-[-0.045em] text-white sm:text-5xl lg:text-6xl">
+        End of Year Specials
+      </h2>
 
-                <div className="mt-9 flex flex-wrap items-end gap-x-5 gap-y-2">
-                  <span className="font-serif text-6xl tracking-[-0.06em] text-white sm:text-7xl">
-                    $1,000
-                  </span>
+      <p className="mx-auto mt-6 max-w-2xl text-base leading-8 text-white/65 sm:text-lg">
+        Your wedding deserves to be remembered beautifully.
+        For a limited time, we're offering two special wedding
+        film collections at exclusive pricing.
+      </p>
 
-                  <span className="pb-2 text-xs font-medium uppercase tracking-[0.24em] text-[#d4af67]">
-  Limited Offer
-</span>
-                </div>
+      <p className="mt-5 text-xs font-medium uppercase tracking-[0.2em] text-[#d4af67]">
+        Limited bookings available
+      </p>
 
-                <p className="mt-4 text-sm leading-6 text-white/50">
-                  Limited dates available for this special pricing.
-                </p>
+    </div>
 
-                <a
-                  href="#inquire"
-                  className="mt-9 inline-flex items-center justify-center rounded-full bg-white px-8 py-4 text-sm font-medium text-neutral-950 transition duration-300 hover:bg-neutral-200"
-                >
-                  Inquire Now
-                </a>
-              </div>
+    {/* Special Packages */}
+    <div className="mt-14 grid gap-6 lg:grid-cols-2">
 
-              <div className="rounded-[2rem] border border-white/10 bg-white/[0.05] p-6 sm:p-8">
-                <p className="text-[0.68rem] font-medium uppercase tracking-[0.28em] text-white/45">
-                  What's Included
-                </p>
+      {endOfYearSpecials.map((special) => (
+        <article
+          key={special.name}
+          className={`relative flex h-full flex-col rounded-[2rem] border p-7 sm:p-9 lg:p-10 ${
+            special.featured
+              ? "border-[#d4af67]/50 bg-white/[0.09]"
+              : "border-white/10 bg-white/[0.04]"
+          }`}
+        >
 
-                <ul className="mt-7 grid gap-x-8 gap-y-5 sm:grid-cols-2">
-                  {specialFeatures.map((feature) => (
-                    <li
-                      key={feature}
-                      className="flex items-start gap-3 text-sm leading-6 text-white/80"
-                    >
-                      <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-white/60" />
-                      <span>{feature}</span>
-                    </li>
-                  ))}
-                </ul>
+          {/* Featured Label */}
+          {special.featured && (
+            <span className="absolute right-6 top-6 rounded-full border border-[#d4af67]/30 bg-[#d4af67]/10 px-3 py-1.5 text-[0.6rem] font-medium uppercase tracking-[0.18em] text-[#d4af67] sm:right-9 sm:top-9">
+              Enhanced Coverage
+            </span>
+          )}
 
-                <div className="mt-8 border-t border-white/10 pt-6">
-                  <p className="text-sm leading-7 text-white/50">
-  A streamlined cinematic experience designed to preserve the
-  moments, voices, and emotion that make your wedding day yours.
-</p>
-                </div>
-              </div>
+          <div className="flex flex-1 flex-col">
+
+            {/* Package Name */}
+            <p className="pr-32 text-[0.65rem] font-medium uppercase tracking-[0.25em] text-white/50">
+              End of Year Collection
+            </p>
+
+            <h3 className="mt-4 font-serif text-3xl tracking-[-0.04em] text-white sm:text-4xl">
+              {special.name}
+            </h3>
+
+            {/* Price */}
+            <div className="mt-7 flex flex-wrap items-end gap-x-5 gap-y-2">
+
+              <span className="font-serif text-5xl tracking-[-0.06em] text-white sm:text-6xl">
+                {special.price}
+              </span>
+
+              <span className="pb-2 text-[0.65rem] font-medium uppercase tracking-[0.22em] text-[#d4af67]">
+                Limited Offer
+              </span>
+
             </div>
+
+            {/* Description */}
+            <p className="mt-6 max-w-lg text-sm leading-7 text-white/60">
+              {special.description}
+            </p>
+
+            {/* Divider */}
+            <div className="my-8 h-px bg-white/10" />
+
+            {/* Features */}
+            <p className="text-[0.65rem] font-medium uppercase tracking-[0.25em] text-white/45">
+              What's Included
+            </p>
+
+            <ul className="mt-6 space-y-4">
+              {special.features.map((feature) => (
+                <li
+                  key={feature}
+                  className="flex items-start gap-3 text-sm leading-7 text-white/80"
+                >
+                  <span className="mt-2.5 h-1.5 w-1.5 shrink-0 rounded-full bg-[#d4af67]" />
+                  <span>{feature}</span>
+                </li>
+              ))}
+            </ul>
+
+            {/* Spacer */}
+            <div className="flex-1" />
+
+            {/* CTA */}
+            <a
+              href="#inquire"
+              className={`mt-10 inline-flex w-full items-center justify-center rounded-full px-7 py-4 text-sm font-medium transition duration-300 ${
+                special.featured
+                  ? "bg-[#d4af67] text-neutral-950 hover:bg-[#e5c58a]"
+                  : "bg-white text-neutral-950 hover:bg-neutral-200"
+              }`}
+            >
+              Inquire Now
+            </a>
+
           </div>
-        </div>
+
+        </article>
+      ))}
+
+    </div>
+
+    {/* Promotion Footer */}
+    <div className="mt-10 text-center">
+      <p className="text-sm leading-7 text-white/45">
+        Special pricing available for a limited number of bookings.
+        Wedding date availability varies.
+      </p>
+    </div>
+
+  </div>
+</div>
+
 
         {/* Standard Collections */}
         <div className="mx-auto mt-28 max-w-3xl text-center">
